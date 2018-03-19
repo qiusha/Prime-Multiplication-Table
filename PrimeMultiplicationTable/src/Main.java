@@ -4,11 +4,23 @@ public class Main {
 
 	public static void main(String[] args) {
 		int primeCount = Integer.parseInt(args[0]);
-		PrimeGenerator primeGenerator = new PrimeGenerator(primeCount);
-		List<Integer>  primes = primeGenerator.generatePrime();
-		PrimeMultiplicationTable primeMultiplicationTable = new PrimeMultiplicationTable(primeCount, primes);
-		primeMultiplicationTable.generateTable();
-		primeMultiplicationTable.printTable();
+		PrimeUtil primeUtil = new PrimeUtil(primeCount);
+
+		long start_time = System.currentTimeMillis();
+
+		List<Integer>  primes = primeUtil.generatePrime();
+
+		long mid_time = System.currentTimeMillis();
+
+		System.out.println("Time of Generating primes: " + (mid_time - start_time) + " milliseconds...");
+
+		/*PrimeMultiplicationTable primeMultiplicationTable = new PrimeMultiplicationTable(primeCount, primes);
+		int[][] primeTable = primeMultiplicationTable.generateTable();
+
+		long end_time = System.currentTimeMillis();
+
+		primeUtil.printTable(primeTable);
+		System.out.println("Time of Generating multiplication table: " + (end_time - mid_time) + " milliseconds...");*/
 	}
 	
 }
