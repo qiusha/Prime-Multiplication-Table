@@ -4,12 +4,32 @@ import java.lang.InterruptedException;
 public class MainThread {
 
 	public static void main(String[] args) {
-		int primeCount = Integer.parseInt(args[0]);
-		int threadCount = Integer.parseInt(args[1]);
+		if (args.length != 2) {
+			System.out.println("Usage: java Main [number of primes] [number of thread], exiting...");
+  			System.exit(0);
+		}
+		int primeCount;
+		int threadCount;
+		try{
+			primeCount = Integer.parseInt(args[0]);
+			threadCount = Integer.parseInt(args[1]);
+		} catch (NumberFormatException e) {
+    		throw new NumberFormatException();
+  		}
+
+  		if (primeCount <= 0 || threadCount <= 0) {
+  			System.out.println("Number of Prime and number of threads must be larger to 0, exiting...");
+  			System.exit(0);
+  		}
+
+		long start_time = System.currentTimeMillis();
+
 		PrimeUtil primeUtil = new PrimeUtil(primeCount);
 		List<Integer>  primes = primeUtil.generatePrime();
 
-		long start_time = System.currentTimeMillis();
+		long mid_time = System.currentTimeMillis();
+
+		System.out.println("Time of Generating primes: " + (mid_time - start_time) + " milliseconds...");
 
 		Thread[] threads = new Thread[threadCount];
 		for (int i = 0; i < threadCount; i++) {
@@ -29,7 +49,7 @@ public class MainThread {
 		long end_time = System.currentTimeMillis();
 
 		primeUtil.printTable(PrimeMultiplicationTableThread.getPrimeTable());
-		System.out.println("Time of Generating multiplication table: " + (end_time - start_time) + " milliseconds...");
+		System.out.println("Time of Generating multiplication table: " + (end_time - mid_time) + " milliseconds...");
 	}
 	
 }

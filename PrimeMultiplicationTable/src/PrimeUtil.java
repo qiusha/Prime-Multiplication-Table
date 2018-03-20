@@ -26,7 +26,7 @@ public class PrimeUtil {
 		return primes;
 	}
 
-	private boolean isPrime(int num) {
+	public boolean isPrime(int num) {
 		if (num <= 1)
 			return false;
 		for (int i = 2; i <= Math.sqrt(num); i++) {
@@ -38,7 +38,7 @@ public class PrimeUtil {
 	}
 
 	//https://en.wikipedia.org/wiki/Primality_test#Pseudocode
-	private boolean sixKOptimization(int num) {
+	public boolean sixKOptimization(int num) {
 		if (num <= 1) {
 			return false;
 		} else if (num <= 3) {
