@@ -22,6 +22,7 @@ public class Main {
 
 		long start_time = System.currentTimeMillis();
 
+		// Generate prime numbers
 		PrimeUtil primeUtil = new PrimeUtil(primeCount);
 		List<Integer>  primes = primeUtil.generatePrime();
 
@@ -29,12 +30,15 @@ public class Main {
 
 		System.out.println("Time of Generating primes: " + (mid_time - start_time) + " milliseconds...");
 
+		// Generate prime table
 		PrimeMultiplicationTable primeMultiplicationTable = new PrimeMultiplicationTable(primeCount, primes);
 		int[][] primeTable = primeMultiplicationTable.generateTable();
 
 		long end_time = System.currentTimeMillis();
 
+		// Print prime table
 		primeUtil.printTable(primeTable);
+		
 		System.out.println("Time of Generating multiplication table: " + (end_time - mid_time) + " milliseconds...");
 	}
 	

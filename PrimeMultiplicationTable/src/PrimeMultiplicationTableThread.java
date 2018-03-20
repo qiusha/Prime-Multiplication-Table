@@ -21,10 +21,12 @@ public class PrimeMultiplicationTableThread implements Runnable {
 		return primeTable;
 	}
 
+	// Atomic counter to indicate which column to calculate
 	private static synchronized int getColumnNumber() {
 		return column_number++;
 	}
 
+	// Multiply prime numbers to generate prime table
 	@Override
 	public void run() {
 		int column;

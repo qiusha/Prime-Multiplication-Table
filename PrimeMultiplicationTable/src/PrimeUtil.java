@@ -12,6 +12,7 @@ public class PrimeUtil {
 		this.primes = new LinkedList<Integer>();
 	}
 
+	// Generate prime numbers with count equals to primeCount
 	public List<Integer> generatePrime() {
 		for (int i = 2; i < Integer.MAX_VALUE; i++) {
 			if (primes.size() == primeCount) {
@@ -26,6 +27,7 @@ public class PrimeUtil {
 		return primes;
 	}
 
+	// Naive Method
 	public boolean isPrime(int num) {
 		if (num <= 1)
 			return false;
@@ -37,6 +39,7 @@ public class PrimeUtil {
 		return true;
 	}
 
+	// sixK optimization method
 	//https://en.wikipedia.org/wiki/Primality_test#Pseudocode
 	public boolean sixKOptimization(int num) {
 		if (num <= 1) {
@@ -57,6 +60,7 @@ public class PrimeUtil {
 		return true;
 	}
 
+	// Print prime table
 	public void printTable(int[][] primeTable) {
 		for (int i = 0; i < primes.size(); i++) {
 			System.out.print(TAB + primes.get(i));

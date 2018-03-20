@@ -11,6 +11,7 @@ public class PrimeMultiplicationTable {
 		this.primeTable = new int[primeCount][primeCount];
 	}
 
+	// Multiply prime numbers to generate prime table
 	public int[][] generateTable() {
 		for (int i = 0; i < primeCount; i++) {
 			for (int j = i; j < primeCount; j++) {

@@ -24,6 +24,7 @@ public class MainThread {
 
 		long start_time = System.currentTimeMillis();
 
+		// Generate prime numbers
 		PrimeUtil primeUtil = new PrimeUtil(primeCount);
 		List<Integer>  primes = primeUtil.generatePrime();
 
@@ -31,6 +32,7 @@ public class MainThread {
 
 		System.out.println("Time of Generating primes: " + (mid_time - start_time) + " milliseconds...");
 
+		// Generate prime table
 		Thread[] threads = new Thread[threadCount];
 		for (int i = 0; i < threadCount; i++) {
 			PrimeMultiplicationTableThread primeMultiplicationTableThread = new PrimeMultiplicationTableThread(primeCount, primes);
@@ -48,7 +50,9 @@ public class MainThread {
 
 		long end_time = System.currentTimeMillis();
 
+		// Print prime table
 		primeUtil.printTable(PrimeMultiplicationTableThread.getPrimeTable());
+		
 		System.out.println("Time of Generating multiplication table: " + (end_time - mid_time) + " milliseconds...");
 	}
 	
